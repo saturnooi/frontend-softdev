@@ -71,11 +71,11 @@
                     <p>
                         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis, ex ratione. Aliquid!
                     </p>
-                    <button class="btn transparent" id="sign-up-btn">
-              Sign up
+                    <button v-on:click = "Register_mode" class ="btn transparent" id="sign-up-btn" >
+              Sign up 
             </button>
                 </div>
-                <img src="img/log.svg" class="image" alt="" />
+                <img src="../assets/svg/login.svg" class="image" alt="" />
             </div>
             <div class="panel right-panel">
                 <div class="content">
@@ -83,11 +83,11 @@
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum laboriosam ad deleniti.
                     </p>
-                    <button class="btn transparent" id="sign-in-btn">
+                    <button v-on:click = "Login_mode" class="btn transparent" id="sign-in-btn">
               Sign in
             </button>
                 </div>
-                <img src="img/register.svg" class="image" alt="" />
+                <img src="../assets/svg/Register.svg" class="image" alt="" />
             </div>
         </div>
     </div>
@@ -271,7 +271,7 @@ form.sign-in-form {
 }
 
 .image {
-  width: 100%;
+  width: 70%;
   transition: transform 1.1s ease-in-out;
   transition-delay: 0.4s;
 }
@@ -327,7 +327,7 @@ form.sign-in-form {
   transform: translateX(800px);
 }
 
-/* ANIMATION */
+
 
 .container.sign-up-mode:before {
   transform: translate(100%, -50%);
@@ -507,6 +507,16 @@ export default {
         return{
 
         }
-    }
+    },
+    mounted() {
+        const container = document.querySelector(".container");
+		this.Register_mode = function() {	
+            container.classList.add("sign-up-mode");
+		}
+        this.Login_mode = function() {	
+            container.classList.remove("sign-up-mode");
+		}
+	}
 }
+
 </script>
